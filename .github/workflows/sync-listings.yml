@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir -p listings
           exec > >(tee listings/sync.log) 2>&1
-          API=https://api.swiftstay.uk/api
+          API=${API_BASE:-https://swiftstay-api.jokeko1515.workers.dev/api}
           UA="Mozilla/5.0 (compatible; swiftstay-ads-sync)"
           curl -sS -A "$UA" -w "\nHTTP %{http_code}\n" "$API/properties" -o /tmp/all.json; head -c 300 /tmp/all.json; echo
           jq -r '(.properties // .data // .)[] | select(((.status // "active")|ascii_downcase) == "active") | .id' /tmp/all.json > /tmp/ids || true
