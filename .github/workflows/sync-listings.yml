@@ -15,21 +15,24 @@ jobs:
       - uses: actions/checkout@v4
       - name: Download active listings and their photos
         run: |
-          set -e
-          API=https://api.swiftstay.uk/api
-          curl -fsS "$API/properties" -o /tmp/all.json
-          jq -r '.properties[] | select((.status // "active") == "active") | .id' /tmp/all.json > /tmp/ids
           mkdir -p listings
-          jq '[.properties[] | select((.status // "active") == "active") | {id, name, location, price_per_night}]' /tmp/all.json > listings/index.json
+          exec > >(tee listings/sync.log) 2>&1
+          API=https://api.swiftstay.uk/api
+          UA="Mozilla/5.0 (compatible; swiftstay-ads-sync)"
+          curl -sS -A "$UA" -w "\nHTTP %{http_code}\n" "$API/properties" -o /tmp/all.json; head -c 300 /tmp/all.json; echo
+          jq -r '(.properties // .data // .)[] | select(((.status // "active")|ascii_downcase) == "active") | .id' /tmp/all.json > /tmp/ids || true
+          echo "ids: $(cat /tmp/ids | tr '\n' ' ')"
+          jq '[(.properties // .data // .)[] | select(((.status // "active")|ascii_downcase) == "active") | {id, name, location, price_per_night}]' /tmp/all.json > listings/index.json || true
           while read id; do
             d=listings/$id; mkdir -p $d
-            curl -fsS "$API/properties/$id" -o /tmp/p.json || jq ".properties[] | select(.id==$id)" /tmp/all.json > /tmp/p.json
+            curl -fsS -A "$UA" "$API/properties/$id" -o /tmp/p.json || jq "(.properties // .data // .)[] | select(.id==$id)" /tmp/all.json > /tmp/p.json
             jq . /tmp/p.json > $d/property.json
             n=0
-            for url in $(jq -r '(.images // .property.images // [])[]' /tmp/p.json); do
+            for url in $(jq -r '(.images // .property.images // .data.images // [])[] | if type=="object" then (.url // .image_url) else . end' /tmp/p.json); do
               n=$((n+1)); f=$d/$(printf "%02d" $n).jpg
-              [ -s "$f" ] || curl -fsS "$url" -o "$f" || rm -f "$f"
+              [ -s "$f" ] || curl -fsS -A "$UA" "$url" -o "$f" || { echo "failed $url"; rm -f "$f"; }
             done
+            echo "listing $id: $n photos"
           done < /tmp/ids
       - name: Commit
         run: |
