@@ -1,0 +1,39 @@
+name: Sync listing photos
+on:
+  schedule:
+    - cron: "15 22 * * *"   # 06:15 Manila, before the daily ad run
+  workflow_dispatch:
+  push:
+    paths:
+      - "listings/REQUEST"
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download active listings and their photos
+        run: |
+          set -e
+          API=https://api.swiftstay.uk/api
+          curl -fsS "$API/properties" -o /tmp/all.json
+          jq -r '.properties[] | select((.status // "active") == "active") | .id' /tmp/all.json > /tmp/ids
+          mkdir -p listings
+          jq '[.properties[] | select((.status // "active") == "active") | {id, name, location, price_per_night}]' /tmp/all.json > listings/index.json
+          while read id; do
+            d=listings/$id; mkdir -p $d
+            curl -fsS "$API/properties/$id" -o /tmp/p.json || jq ".properties[] | select(.id==$id)" /tmp/all.json > /tmp/p.json
+            jq . /tmp/p.json > $d/property.json
+            n=0
+            for url in $(jq -r '(.images // .property.images // [])[]' /tmp/p.json); do
+              n=$((n+1)); f=$d/$(printf "%02d" $n).jpg
+              [ -s "$f" ] || curl -fsS "$url" -o "$f" || rm -f "$f"
+            done
+          done < /tmp/ids
+      - name: Commit
+        run: |
+          git config user.name "swiftstay-bot"
+          git config user.email "swiftstay-bot@users.noreply.github.com"
+          git add listings
+          git diff --cached --quiet || (git commit -m "Sync listing photos" && git push)
