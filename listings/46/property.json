@@ -1,0 +1,30 @@
+{
+  "property": {
+    "id": 46,
+    "owner_id": 121,
+    "created_by_admin_id": null,
+    "title": "Solace Designer Studio #46",
+    "description": "Welcome to Solace Designer Studio #46, an exquisite city sanctuary situated in the heart of Cebu City, Philippines. Featuring 2 bedroom(s), 3 bathroom(s), panoramic vistas, high-speed connectivity, and bespoke hospitality curated by Leila Faris.",
+    "address": "Cebu IT Park, Lahug No. 56",
+    "city": "Cebu City",
+    "country": "Philippines",
+    "price_per_night": 11720,
+    "hourly_rate": null,
+    "max_guests": 8,
+    "bedrooms": 2,
+    "bathrooms": 3,
+    "amenities": "[\"WiFi\",\"Pool\",\"Workspace\",\"Washer\",\"Kitchen\",\"Security\",\"Elevator\",\"Free Parking\",\"TV\",\"Gym\"]",
+    "images": "[\"https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80\",\"https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80\",\"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80\",\"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80\"]",
+    "status": "active",
+    "created_at": "2026-07-17 20:38:18",
+    "updated_at": "2026-08-26 14:38:18",
+    "ical_token": null,
+    "deactivated_reason": null,
+    "deactivated_at": null,
+    "owner_name": "Leila Faris",
+    "owner_image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+    "owner_bio": "Art collector and host of curated botanical sanctuaries.",
+    "owner_since": "2026-08-24 16:57:19",
+    "publicly_visible": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "property": {
+    "id": 45,
+    "owner_id": 120,
+    "created_by_admin_id": null,
+    "title": "Solstice Designer Studio #45",
+    "description": "Welcome to Solstice Designer Studio #45, an exquisite city sanctuary situated in the heart of Taguig, Philippines. Featuring 1 bedroom(s), 2 bathroom(s), panoramic vistas, high-speed connectivity, and bespoke hospitality curated by Ethan Sterling.",
+    "address": "Bonifacio Global City, High Street No. 55",
+    "city": "Taguig",
+    "country": "Philippines",
+    "price_per_night": 11350,
+    "hourly_rate": 1892,
+    "max_guests": 7,
+    "bedrooms": 1,
+    "bathrooms": 2,
+    "amenities": "[\"Kitchen\",\"Security\",\"Elevator\",\"Free Parking\",\"TV\",\"Gym\",\"Air Conditioning\",\"Hot Water\",\"WiFi\"]",
+    "images": "[\"https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=80\",\"https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80\",\"https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=1200&q=80\",\"https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80\"]",
+    "status": "active",
+    "created_at": "2026-07-17 19:38:18",
+    "updated_at": "2026-08-26 14:38:18",
+    "ical_token": null,
+    "deactivated_reason": null,
+    "deactivated_at": null,
+    "owner_name": "Ethan Sterling",
+    "owner_image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80",
+    "owner_bio": "Luxury concierge managing high-end private villas and residences.",
+    "owner_since": "2026-08-24 16:57:19",
+    "publicly_visible": true
+  }
+}

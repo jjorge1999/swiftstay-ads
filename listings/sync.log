@@ -1,6 +1,24 @@
 
-HTTP 403
-<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta name="robots" content="noindex,nofollow"><meta name="viewport" content="width=device-width,initial-scal
-jq: parse error: Invalid numeric literal at line 1, column 10
-ids: 
-jq: parse error: Invalid numeric literal at line 1, column 10
+HTTP 200
+{"properties":[{"id":50,"owner_id":125,"created_by_admin_id":null,"title":"Pinecrest Alpine Pine Cabin #50","description":"Welcome to Pinecrest Alpine Pine Cabin #50, an exquisite cabins sanctuary situated in the heart of Sagada, Philippines. Featuring 1 bedroom(s), 3 bathroom(s), panoramic vistas, 
+ids: 50 49 48 47 46 45 44 43 42 41 
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 50: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 49: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 48: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 47: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 46: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 45: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 44: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 43: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 42: 0 photos
+jq: error (at /tmp/p.json:0): Cannot iterate over string ("[\"https:/...)
+listing 41: 0 photos
