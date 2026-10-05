@@ -1,0 +1,1 @@
+# swiftstay-ads
