@@ -1,7 +1,8 @@
-name: Sync listing photos
+name: Fetch listing photos
+# The daily ad task can't download images from api.swiftstay.uk (its sandbox blocks it),
+# so it writes "<listing id> <image url>" lines to listings/REQUEST and pushes.
+# This workflow downloads each photo into listings/<id>/<file>.jpg and commits it.
 on:
-  schedule:
-    - cron: "15 22 * * *"   # 06:15 Manila, before the daily ad run
   workflow_dispatch:
   push:
     paths:
@@ -9,34 +10,29 @@ on:
 permissions:
   contents: write
 jobs:
-  sync:
+  fetch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download active listings and their photos
+      - name: Download requested photos
         run: |
-          mkdir -p listings
-          exec > >(tee listings/sync.log) 2>&1
-          API=${API_BASE:-https://swiftstay-api.jokeko1515.workers.dev/api}
-          UA="Mozilla/5.0 (compatible; swiftstay-ads-sync)"
-          curl -sS -A "$UA" -w "\nHTTP %{http_code}\n" "$API/properties" -o /tmp/all.json; head -c 300 /tmp/all.json; echo
-          jq -r '(.properties // .data // .)[] | select(((.status // "active")|ascii_downcase) == "active") | .id' /tmp/all.json > /tmp/ids || true
-          echo "ids: $(cat /tmp/ids | tr '\n' ' ')"
-          jq '[(.properties // .data // .)[] | select(((.status // "active")|ascii_downcase) == "active") | {id, name, location, price_per_night}]' /tmp/all.json > listings/index.json || true
-          while read id; do
-            d=listings/$id; mkdir -p $d
-            curl -fsS -A "$UA" "$API/properties/$id" -o /tmp/p.json || jq "(.properties // .data // .)[] | select(.id==$id)" /tmp/all.json > /tmp/p.json
-            jq . /tmp/p.json > $d/property.json
-            n=0
-            for url in $(jq -r '(.images // .property.images // .data.images // [])[] | if type=="object" then (.url // .image_url) else . end' /tmp/p.json); do
-              n=$((n+1)); f=$d/$(printf "%02d" $n).jpg
-              [ -s "$f" ] || curl -fsS -A "$UA" "$url" -o "$f" || { echo "failed $url"; rm -f "$f"; }
+          exec > >(tee listings/fetch.log) 2>&1
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
+          grep -v '^#' listings/REQUEST | while read id url; do
+            [ -z "$url" ] && continue
+            mkdir -p listings/$id
+            f=listings/$id/$(basename "${url%%\?*}")
+            [ -s "$f" ] && { echo "have $f"; continue; }
+            ok=no
+            for u in "$url" "${url/api.swiftstay.uk/swiftstay-api.jokeko1515.workers.dev}"; do
+              curl -sSL -A "$UA" "$u" -o "$f.tmp" && file -b --mime-type "$f.tmp" | grep -q '^image/' && { mv "$f.tmp" "$f"; ok=yes; echo "ok $f <- $u"; break; }
+              echo "fail $u ($(file -b --mime-type "$f.tmp" 2>/dev/null))"
             done
-            echo "listing $id: $n photos"
-          done < /tmp/ids
+            rm -f "$f.tmp"
+          done
       - name: Commit
         run: |
           git config user.name "swiftstay-bot"
           git config user.email "swiftstay-bot@users.noreply.github.com"
           git add listings
-          git diff --cached --quiet || (git commit -m "Sync listing photos" && git push)
+          git diff --cached --quiet || (git commit -m "Fetch listing photos" && git push)
