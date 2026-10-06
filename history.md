@@ -8,3 +8,5 @@ One line per published post, newest at the bottom. The daily task reads this bef
 | 2026-10-05 | 19:00 | guest | 0 seen no reply | Nag-message ka. Seen lang. | two-word verdict | Messenger thread Seen | ber months | - | image |
 | 2026-10-05 | 21:31 | spotlight | 8 The Grey Rental House | Labindalawa kayo? Isang bahay lang. | specific count | raw photos (no card) | 12 guests / ₱625 each | 01,02,03,04 | 4-photo post |
 | 2026-10-05 | 21:45 | spotlight | 8 The Grey Rental House | Oct 31 hanggang Nov 2. Saan ang barkada? | time stamp | photo grid + sand fact card | Undas long weekend / barkada | designed card (lead 1787770214217), +1787770213036, +1787770213030 | image + 2 photos |
+| 2026-10-06 | 12:10 | owner | M2 storytime · 7 forty unread | 40 unread. Isa lang ang sumasagot. | specific count | phone lock screen notifications | peak season | - | 10s video (reel) |
+| 2026-10-06 | 19:00 | spotlight | M3 this-or-that · 8 The Grey Rental House | Hindi na iiwan si Bantay. | flat fact | full-bleed photo + polaroid inset | pet friendly | lead 1787770213027, inset 1787770213200, +1787770213034, +1787770214222 | image + 2 photos |
