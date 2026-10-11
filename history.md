@@ -12,3 +12,5 @@ One line per published post, newest at the bottom. The daily task reads this bef
 | 2026-10-06 | 19:00 | spotlight | M3 this-or-that · 8 The Grey Rental House | Hindi na iiwan si Bantay. | flat fact | full-bleed photo + polaroid inset | pet friendly | lead 1787770213027, inset 1787770213200, +1787770213034, +1787770214222 | image + 2 photos |
 | 2026-10-07 | 13:15 | owner | M1 own-pain count · 8 legit po ba | «Pa-send po ng ID niyo.» Ikaw pa ang magpapatunay. | overheard line | Messenger thread (4 bubbles) | Undas bookings / scam fear | - | 10s reel, sound chill seed 20261007 |
 | 2026-10-07 | 19:00 | guest | M2 storytime · 6 scrolling groups | «Isang scroll pa, baka meron na.» | what they tell themselves | stack of group posts with status tags | Undas Oct 31 | - | image |
+| 2026-10-11 | 16:40 | owner | M6 hot take · 9 copied photos | Parehong sala. Ibang page. | two-word verdict | side-by-side pages "Alin ang totoo?" | scam fear | - | image |
+| 2026-10-11 | 17:00 | guest | M3 this-or-that · 1 four hours, fully booked | Apat na oras. Fully booked pala. | time stamp | big clock + Messenger thread | 3 weeks before Undas | - | 10s reel, sound chill seed 20261011 |

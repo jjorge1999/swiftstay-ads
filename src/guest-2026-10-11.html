@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;background:#0F4C5C;font-family:'Inter',sans-serif;color:#fff;position:relative;overflow:hidden}
+.top{position:absolute;left:80px;right:80px;top:64px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Inter Display','Inter';font-weight:800;font-size:44px;letter-spacing:-1px}.logo span{color:#E8735A}
+.kick{font-weight:700;font-size:22px;letter-spacing:3px;opacity:.8}
+.clock{position:absolute;left:0;right:0;top:190px;text-align:center;font-family:'Inter Display','Inter';font-weight:800;font-size:200px;letter-spacing:-6px}
+.lbl{position:absolute;left:0;right:0;top:420px;text-align:center;font-size:34px;opacity:.9}
+.chat{position:absolute;left:80px;right:80px;top:520px;background:#fff;color:#1E2A30;border-radius:34px;padding:30px}
+.b{max-width:80%;font-size:30px;line-height:1.3;padding:16px 22px;border-radius:26px;margin:10px 0}
+.out{background:#0F4C5C;color:#fff;margin-left:auto;border-bottom-right-radius:8px}
+.in{background:#EEF1F2;border-bottom-left-radius:8px}
+.seen{text-align:right;font-size:20px;color:#5A6672;margin-right:6px}
+.hid{visibility:hidden}
+h1{display:none;position:absolute;left:80px;right:80px;top:150px;font-family:'Inter Display','Inter';font-weight:800;font-size:96px;line-height:1.03;letter-spacing:-2.5px}
+h1 em{font-style:normal;color:#E8735A}
+.final h1{display:block}.final .clock,.final .lbl{display:none}
+.final .chat{top:420px}
+.q{display:none}
+.final .q{display:block;position:absolute;left:80px;right:80px;top:950px;font-family:'Inter Display','Inter';font-weight:800;font-size:40px;line-height:1.15}
+.foot{display:none}
+.final .foot{display:flex;position:absolute;left:80px;right:80px;top:1130px;border-top:2px solid rgba(255,255,255,.25);padding-top:32px;justify-content:space-between;align-items:center}
+.offer{font-weight:800;font-size:27px;color:#E8735A;line-height:1.25}.offer small{display:block;color:#fff;opacity:.8;font-weight:600;font-size:23px}
+.cta{background:#E8735A;font-weight:800;font-size:28px;padding:20px 32px;border-radius:999px}
+</style></head><body>
+<div class="top"><div class="logo">Swift<span>Stay</span></div><div class="kick">3 LINGGO BAGO UNDAS</div></div>
+<h1>Apat na oras.<br><em>Fully booked pala.</em></h1>
+<div class="clock" id="clock">10:02</div><div class="lbl" id="lbl">Nag-message ka.</div>
+<div class="chat">
+ <div class="b out" id="m1">Hi po! Available pa po ba Oct 31 to Nov 2? 12 kami 🙏</div>
+ <div class="seen hid" id="s1">Seen 1:15 PM</div>
+ <div class="b in hid" id="m2">Sorry po, fully booked na po. 🙏</div>
+</div>
+<div class="q">Kapag walang reply: maghihintay ka pa, o lilipat agad? Bakit?</div>
+<div class="foot"><div class="offer">Kita agad ang bukas na dates.<small>Bago ka pa mag-message · swiftstay.uk</small></div><div class="cta">Mag-browse ng stays</div></div>
+<script>
+function frame(c,l,seen,reply,final){document.getElementById('clock').textContent=c;document.getElementById('lbl').textContent=l;
+document.getElementById('s1').classList.toggle('hid',!seen);document.getElementById('m2').classList.toggle('hid',!reply);document.body.className=final?'final':'';}
+</script></body></html>
