@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;background:#F4E9D8;font-family:'Inter',sans-serif;color:#1E2A30;position:relative;overflow:hidden}
+.top{position:absolute;left:80px;right:80px;top:64px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Inter Display','Inter';font-weight:800;font-size:44px;letter-spacing:-1px;color:#0F4C5C}.logo span{color:#E8735A}
+.kick{font-weight:700;font-size:22px;letter-spacing:3px;color:#5A6672}
+.fridge{position:absolute;left:150px;right:150px;top:150px;height:900px;background:#E9EEF0;border-radius:40px;border:6px solid #cfd8dc}
+.fridge:after{content:'';position:absolute;left:0;right:0;top:300px;border-top:6px solid #cfd8dc}
+.handle{position:absolute;right:40px;top:120px;width:16px;height:120px;background:#b0bec5;border-radius:8px}
+.handle.b{top:380px;height:180px}
+.note{position:absolute;width:300px;padding:26px 24px;font-family:'Inter';font-size:30px;line-height:1.25;font-weight:600;box-shadow:0 10px 20px rgba(0,0,0,.12);opacity:0}
+.note b{display:block;font-size:40px;font-weight:800;margin-bottom:6px}
+.n1{left:80px;top:120px;background:#FFE08A;transform:rotate(-4deg)}
+.n2{left:400px;top:360px;background:#FFC7B8;transform:rotate(3deg)}
+.n3{left:90px;top:560px;background:#BFE3D9;transform:rotate(-2deg)}
+.show{opacity:1}
+.stamp{position:absolute;left:360px;top:610px;border:6px solid #C2482F;color:#C2482F;font-family:'Inter Display','Inter';font-weight:800;font-size:44px;padding:8px 18px;transform:rotate(-10deg);opacity:0;background:rgba(255,255,255,.6)}
+.cap{position:absolute;left:80px;right:80px;top:1110px;text-align:center;font-family:'Inter Display','Inter';font-weight:800;font-size:60px;letter-spacing:-1.5px}
+.cap em{font-style:normal;color:#E8735A}
+h1{display:none;position:absolute;left:80px;right:80px;top:150px;font-family:'Inter Display','Inter';font-weight:800;font-size:92px;line-height:1.04;letter-spacing:-2.5px;color:#0F4C5C}
+h1 em{font-style:normal;color:#E8735A}
+.final h1{display:block}
+.final .fridge{transform:scale(.62);transform-origin:top center;top:380px}
+.final .cap{display:none}
+.q{display:none}
+.final .q{display:block;position:absolute;left:80px;right:80px;top:960px;font-family:'Inter Display','Inter';font-weight:800;font-size:38px;line-height:1.15;color:#0F4C5C;text-align:center}
+.foot{display:none}
+.final .foot{display:flex;position:absolute;left:80px;right:80px;top:1130px;border-top:2px solid rgba(30,42,48,.18);padding-top:32px;justify-content:space-between;align-items:center}
+.offer{font-weight:800;font-size:27px;color:#E8735A;line-height:1.25}.offer small{display:block;color:#5A6672;font-weight:600;font-size:23px}
+.cta{background:#E8735A;color:#fff;font-weight:800;font-size:29px;padding:20px 34px;border-radius:999px;white-space:nowrap}
+</style></head><body>
+<div class="top"><div class="logo">Swift<span>Stay</span></div><div class="kick">UNDAS · OCT 31</div></div>
+<h1>Nasa ref<br><em>ang Undas mo.</em></h1>
+<div class="fridge"><div class="handle"></div><div class="handle b"></div>
+ <div class="note n1" id="n1"><b>Oct 31</b>Tita Bing, 8 pax</div>
+ <div class="note n2" id="n2"><b>Nov 1</b>barkada ni Jen</div>
+ <div class="note n3" id="n3"><b>Nov 1</b>Kuya (Viber) ✔</div>
+ <div class="stamp" id="st">DOBLE!</div>
+</div>
+<div class="cap" id="cap"></div>
+<div class="q">Owners: ilang lugar mo sinusulat ang bookings ngayon?</div>
+<div class="foot"><div class="offer">Isang calendar para sa lahat ng booking.<small>Libreng booking page · swiftstay.uk</small></div><div class="cta">I-message kami</div></div>
+<script>
+function frame(n,stamp,cap,final){for(let i=1;i<=3;i++)document.getElementById('n'+i).classList.toggle('show',i<=n);document.getElementById('st').style.opacity=stamp?1:0;document.getElementById('cap').innerHTML=cap;document.body.className=final?'final':'';}
+</script></body></html>

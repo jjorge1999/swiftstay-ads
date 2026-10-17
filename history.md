@@ -14,3 +14,5 @@ One line per published post, newest at the bottom. The daily task reads this bef
 | 2026-10-07 | 19:00 | guest | M2 storytime · 6 scrolling groups | «Isang scroll pa, baka meron na.» | what they tell themselves | stack of group posts with status tags | Undas Oct 31 | - | image |
 | 2026-10-11 | 16:40 | owner | M6 hot take · 9 copied photos | Parehong sala. Ibang page. | two-word verdict | side-by-side pages "Alin ang totoo?" | scam fear | - | image |
 | 2026-10-11 | 17:00 | guest | M3 this-or-that · 1 four hours, fully booked | Apat na oras. Fully booked pala. | time stamp | big clock + Messenger thread | 3 weeks before Undas | - | 10s reel, sound chill seed 20261011 |
+| 2026-10-17 | 14:45 | owner | M1 own-pain count · 3/0 scattered records, double booked | Nasa ref ang Undas mo. | flat fact | sticky notes on a fridge + DOBLE stamp | Undas | - | 10s reel, sound warm seed 20261017 |
+| 2026-10-17 | 15:15 | spotlight | M2 storytime · 8 The Grey Rental House | May kusina. Sino'ng taga-luto? | overheard line | full-bleed kitchen photo + barkada GC bubbles | kitchen / barkada | lead 1787770213030, +1787770214217, +1787770213036 | image + 2 photos |
